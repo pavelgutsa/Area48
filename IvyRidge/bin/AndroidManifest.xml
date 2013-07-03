@@ -14,17 +14,9 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.omnixgroup.area48.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name="com.omnixgroup.area48.DisplayObjectiveActivity"
-            android:label="@string/title_activity_view_objective" >
-        </activity>
-        <activity
             android:name="com.omnixgroup.area48.ListObjectivesActivity"
             android:label="@string/app_name" >
-            <intent-filter>
+			 <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -32,20 +24,18 @@
         </activity>
         <activity
             android:name="com.omnixgroup.area48.DisplayLocationObjectiveActivity"
-            android:label="@string/title_activity_display_location_objective"
-            android:parentActivityName="DisplayObjectiveActivity" >
+            android:label="@string/title_activity_display_location_objective">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="DisplayObjectiveActivity" />
         </activity>
         <activity
             android:name="com.omnixgroup.area48.DisplayTargetObjectiveActivity"
-            android:label="@string/title_activity_display_target_objective"
-            android:parentActivityName="DisplayObjectiveActivity" >
+            android:label="@string/title_activity_display_target_objective">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="DisplayObjectiveActivity" />
-        </activity>
+       	</activity>
     </application>
 
 </manifest>

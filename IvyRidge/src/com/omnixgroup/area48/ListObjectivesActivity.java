@@ -6,6 +6,7 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -198,7 +199,7 @@ public class ListObjectivesActivity extends Activity implements
 			}
 			TeamObjective o = mTeamObjectives.get(position);
 			if (o != null) {
-				// Set objectivev icon
+				// Set objective icon
 				ImageView icon = (ImageView) v.findViewById(R.id.icon);
 				if (icon != null) {
 					switch(o.getObjectiveType()) {
@@ -212,6 +213,26 @@ public class ListObjectivesActivity extends Activity implements
 				}
 				
 				// Set objective name
+				TextView text = (TextView) v.findViewById(R.id.text);
+				if (text != null) {
+					text.setText(o.getObjectiveName());
+					
+					switch(o.getObjectiveStatus()) {
+					case PENDING:
+						text.setPaintFlags(text.getPaintFlags() ^ Paint.STRIKE_THRU_TEXT_FLAG);
+						text.setTextColor(Color.parseColor("#101010"));
+						text.setShadowLayer(1, 0, 1, Color.parseColor("#000000"));
+						break;
+					case COMPLETED:
+						text.setPaintFlags(text.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+						text.setTextColor(Color.parseColor("#333333"));
+						text.setShadowLayer(1, 0, 1, Color.parseColor("#ffffff"));						
+						break;
+					}	
+					
+				}
+				
+				/*
 				TextView tt = (TextView) v.findViewById(R.id.toptext);
 				if (tt != null) {
 					tt.setText(o.getObjectiveName());
@@ -232,6 +253,7 @@ public class ListObjectivesActivity extends Activity implements
 					}	
 					
 				}
+				*/
 			}
 			return v;
 		}

@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DisplayLocationObjectiveActivity extends Activity {
@@ -18,15 +22,21 @@ public class DisplayLocationObjectiveActivity extends Activity {
 		setContentView(R.layout.activity_display_location_objective);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		
+
 		Intent intent = getIntent();
-		TeamObjective o = intent.getParcelableExtra(ListObjectivesActivity.OBJECTIVE_ITEM);
-		
-		TextView textView = (TextView) findViewById(R.id.objective_text);
+		TeamObjective o = intent
+				.getParcelableExtra(ListObjectivesActivity.OBJECTIVE_ITEM);
+
+		final TextView textView = (TextView) findViewById(R.id.objective_text);
 		textView.setText(o.getObjectiveDescription());
-		
+
 		// Change the Activity's label
-		this.setTitle( o.getObjectiveName() );
+		this.setTitle(o.getObjectiveName());
+
+		// Set map moving handler
+		final TouchImageView mapView = (TouchImageView) this.findViewById(R.id.area_map);
+		mapView.setMaxZoom(4f);
+		mapView.set
 	}
 
 	/**

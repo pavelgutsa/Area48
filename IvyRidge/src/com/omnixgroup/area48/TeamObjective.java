@@ -56,8 +56,8 @@ public class TeamObjective implements Parcelable {
     	out.writeString(objectiveName);
     	out.writeString(objectiveDescription);
         
-    	out.writeValue(objectiveType);
-    	out.writeValue(objectiveStatus);
+    	out.writeString(objectiveType.name());
+    	out.writeString(objectiveStatus.name());
     }
 
     // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
@@ -75,6 +75,18 @@ public class TeamObjective implements Parcelable {
     private TeamObjective(Parcel in) {
         objectiveName = in.readString();
     	objectiveDescription = in.readString();
+    	
+    	try {
+    		objectiveType = ObjectiveType.valueOf(in.readString());
+        } catch (IllegalArgumentException x) {
+        	objectiveType = null;
+        }
+    	
+    	try {
+    		objectiveStatus = ObjectiveStatus.valueOf(in.readString());
+        } catch (IllegalArgumentException x) {
+        	objectiveStatus = null;
+        }
     }
 	public TeamObjective() {
 		// TODO Auto-generated constructor stub

@@ -5,6 +5,7 @@
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="action_settings">Settings</string>
+    <string name="action_report_objective_completion">Report Objective Completion</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_view_objective">Team Objective</string>
     <string name="button_objectives">List Objectives</string>
@@ -15,5 +16,5 @@
     <string name="title_activity_display_location_objective">DisplayLocationObjectiveActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_display_target_objective">DisplayTargetObjectiveActivity</string>
-
+	<string name="reporting_objective_completion">Reporting completion &#8230;</string>
 </resources>
