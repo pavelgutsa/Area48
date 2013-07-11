@@ -16,12 +16,13 @@
     <string name="title_activity_display_location_objective">DisplayLocationObjectiveActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_display_target_objective">DisplayTargetObjectiveActivity</string>
-	<string name="reporting_objective_completion">Reporting completion &#8230;</string>
-	
-	<!-- Compass strings -->
-	<string name="cardinal_north">N</string>
-	<string name="cardinal_east">E</string>
-	<string name="cardinal_south">S</string>
-	<string name="cardinal_west">W</string>
-	
+    <string name="reporting_objective_completion">Reporting completion &#8230;</string>
+
+    <!-- Compass strings -->
+    <string name="cardinal_north">N</string>
+    <string name="cardinal_east">E</string>
+    <string name="cardinal_south">S</string>
+    <string name="cardinal_west">W</string>
+    <string name="title_activity_game_map">GameMapActivity</string>
+
 </resources>

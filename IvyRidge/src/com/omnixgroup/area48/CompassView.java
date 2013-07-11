@@ -128,39 +128,6 @@ public class CompassView extends View {
 		// Allow double spacing between the letters and circle
 		radius -= Math.max(textWidth+spacingX*2, textHeight+spacingY*2);
 		
-		// Save canvas state before painting compass needle
-		canvas.save();
-		
-		// Rotate the canvas so the top is matching the current bearing
-		//canvas.rotate(-(float)bearing, px, py);
-		canvas.rotate(-(float)bearing * 360 / (2 * 3.14159f), px, py);
-		
-		// Draw the needle
-		Log.i("COMPASS", "new bearing="+bearing);
-		
-		//canvas.drawLine(px, py - radius - spacingY/2, px, py + radius + spacingY/2, markerPaint);
-		
-		// Set path points for needle top
-		compassNeedleTopPath.reset(); 
-		compassNeedleTopPath.moveTo(px, py - radius - spacingY/2); 
-		compassNeedleTopPath.lineTo(px + spacingX, py);
-		compassNeedleTopPath.lineTo(px - spacingX, py);
-		
-		// Draw needle top
-		canvas.drawPath(compassNeedleTopPath, needlePaintNorth);
-		
-		// Set path points for needle bottom
-		compassNeedleBottomPath.reset(); 
-		compassNeedleBottomPath.moveTo(px, py + radius + spacingY/2); 
-		compassNeedleBottomPath.lineTo(px + spacingX, py);
-		compassNeedleBottomPath.lineTo(px - spacingX, py);
-		
-		// Draw needle bottom
-		canvas.drawPath(compassNeedleBottomPath, needlePaintSouth);
-	
-		// Restore to the 'top' state after painting compass needle
-		canvas.restore();
-		
 		// Draw north letter
 		canvas.drawText(northString, px-spacingX, textHeight+spacingY, textPaint);
 
@@ -199,5 +166,36 @@ public class CompassView extends View {
 		
 		// Restore canvas state after painting 45 degree marks on the circle
 		canvas.restore(); 
+		
+		// Save canvas state before painting compass needle
+		canvas.save();
+		
+		// Rotate the canvas so the top is matching the current bearing
+		canvas.rotate(-(float)bearing, px, py);
+		//canvas.rotate(-(float)bearing * 360 / (2 * 3.14159f), px, py);
+		
+		// Draw the needle
+		//canvas.drawLine(px, py - radius - spacingY/2, px, py + radius + spacingY/2, markerPaint);
+		
+		// Set path points for needle top
+		compassNeedleTopPath.reset(); 
+		compassNeedleTopPath.moveTo(px, py - radius - spacingY/2); 
+		compassNeedleTopPath.lineTo(px + spacingX, py);
+		compassNeedleTopPath.lineTo(px - spacingX, py);
+		
+		// Draw needle top
+		canvas.drawPath(compassNeedleTopPath, needlePaintNorth);
+		
+		// Set path points for needle bottom
+		compassNeedleBottomPath.reset(); 
+		compassNeedleBottomPath.moveTo(px, py + radius + spacingY/2); 
+		compassNeedleBottomPath.lineTo(px + spacingX, py);
+		compassNeedleBottomPath.lineTo(px - spacingX, py);
+		
+		// Draw needle bottom
+		canvas.drawPath(compassNeedleBottomPath, needlePaintSouth);
+	
+		// Restore to the 'top' state after painting compass needle
+		canvas.restore();
 	}
 }

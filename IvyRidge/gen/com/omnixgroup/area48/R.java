@@ -52,18 +52,20 @@ public final class R {
         public static final int activity_compass=0x7f030000;
         public static final int activity_display_location_objective=0x7f030001;
         public static final int activity_display_target_objective=0x7f030002;
-        public static final int activity_list_objectives=0x7f030003;
-        public static final int load_objectives_progress=0x7f030004;
-        public static final int team_objective_title=0x7f030005;
-        public static final int team_objectives_listitem=0x7f030006;
+        public static final int activity_game_map=0x7f030003;
+        public static final int activity_list_objectives=0x7f030004;
+        public static final int load_objectives_progress=0x7f030005;
+        public static final int team_objective_title=0x7f030006;
+        public static final int team_objectives_listitem=0x7f030007;
     }
     public static final class menu {
         public static final int compass=0x7f080000;
         public static final int display_location_objective=0x7f080001;
         public static final int display_objective=0x7f080002;
         public static final int display_target_objective=0x7f080003;
-        public static final int list_objectives=0x7f080004;
-        public static final int main=0x7f080005;
+        public static final int game_map=0x7f080004;
+        public static final int list_objectives=0x7f080005;
+        public static final int main=0x7f080006;
     }
     public static final class string {
         public static final int action_report_objective_completion=0x7f060004;
@@ -85,6 +87,7 @@ public final class R {
         public static final int reporting_objective_completion=0x7f06000f;
         public static final int title_activity_display_location_objective=0x7f06000c;
         public static final int title_activity_display_target_objective=0x7f06000e;
+        public static final int title_activity_game_map=0x7f060014;
         public static final int title_activity_list_objectives=0x7f060008;
         public static final int title_activity_main=0x7f060005;
         public static final int title_activity_view_objective=0x7f060006;
