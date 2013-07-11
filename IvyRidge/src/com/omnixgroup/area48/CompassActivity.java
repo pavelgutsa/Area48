@@ -1,90 +1,62 @@
 package com.omnixgroup.area48;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-public class DisplayLocationObjectiveActivity extends Activity 
-	implements SensorEventListener 
-{
+public class CompassActivity extends Activity implements SensorEventListener {
 
 	Float azimuth; // View to draw a compass
-	
+
+	public class CustomDrawableView extends View {
+		Paint paint = new Paint();
+
+		public CustomDrawableView(Context context) {
+			super(context);
+			paint.setColor(0xff00ff00);
+			paint.setStyle(Style.STROKE);
+			paint.setStrokeWidth(2);
+			paint.setAntiAlias(true);
+		};
+
+		protected void onDraw(Canvas canvas) {
+			int width = getWidth();
+			int height = getHeight();
+			int centerx = width / 2;
+			int centery = height / 2;
+			canvas.drawLine(centerx, 0, centerx, height, paint);
+			canvas.drawLine(0, centery, width, centery, paint);
+			// Rotate the canvas with the azimut
+			if (azimuth != null)
+				canvas.rotate(-azimuth * 360 / (2 * 3.14159f), centerx, centery);
+			paint.setColor(0xff0000ff);
+			canvas.drawLine(centerx, -1000, centerx, +1000, paint);
+			canvas.drawLine(-1000, centery, 1000, centery, paint);
+			canvas.drawText("N", centerx + 5, centery - 10, paint);
+			canvas.drawText("S", centerx - 10, centery + 15, paint);
+			paint.setColor(0xff00ff00);
+		}
+	}
+
 	CompassView mCompassView;
 	private SensorManager mSensorManager;
 	Sensor accelerometer;
 	Sensor magnetometer;
-	
-	@Override
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_display_location_objective);
-		// Show the Up button in the action bar.
-		setupActionBar();
-
-		Intent intent = getIntent();
-		TeamObjective o = intent
-				.getParcelableExtra(ListObjectivesActivity.OBJECTIVE_ITEM);
-
-		final TextView textView = (TextView) findViewById(R.id.objective_text);
-		textView.setText(o.getObjectiveDescription());
-
-		// Change the Activity's label
-		this.setTitle(o.getObjectiveName());
-
-		// Set map moving handler
-		final TouchImageView mapView = (TouchImageView) this.findViewById(R.id.area_map);
-		mapView.setMaxZoom(4f);
-	}
-
-	/**
-	 * Set up the {@link android.app.ActionBar}, if the API is available.
-	 */
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	private void setupActionBar() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			getActionBar().setDisplayHomeAsUpEnabled(true);
-		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.display_location_objective, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+		setContentView(R.layout.activity_compass);
 	}
 
 	protected void onResume() {

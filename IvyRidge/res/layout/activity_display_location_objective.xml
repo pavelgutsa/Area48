@@ -9,19 +9,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".DisplayLocationObjectiveActivity" >
 
-     <com.omnixgroup.area48.TouchImageView
-        android:id="@+id/area_map"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="0dip"
-        android:layout_weight="3"
-        android:scaleType="center"
         android:layout_marginBottom="6dip"
-        android:src="@drawable/area_map" />
-     
-    <TextView android:id="@+id/objective_text"
+        android:layout_weight="3" >
+
+        <com.omnixgroup.area48.TouchImageView
+            android:id="@+id/area_map"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"            
+            android:scaleType="center"
+            android:src="@drawable/area_map" />
+
+        <com.omnixgroup.area48.CompassView
+            android:id="@+id/compassView"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignRight="@id/area_map"
+            android:layout_alignTop="@id/area_map"
+             />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/objective_text"
         android:layout_width="wrap_content"
         android:layout_height="0dip"
-        android:layout_weight="1"
-        />
+        android:layout_weight="1" />
 
 </LinearLayout>
