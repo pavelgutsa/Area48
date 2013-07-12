@@ -5,4 +5,5 @@
 <color name="text_color">#FFD800</color>
 <color name="compass_needle_color_north">#F00</color>
 <color name="compass_needle_color_south">#00F</color>
+<color name="player_marker_color">#00FFFF</color>
 </resources>

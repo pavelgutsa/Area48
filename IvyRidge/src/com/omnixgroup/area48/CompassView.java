@@ -118,6 +118,8 @@ public class CompassView extends View {
 		int py = getMeasuredHeight() / 2;
 		int radius = Math.max(px, py);
 		
+//		Log.i("COMPASS", "px="+px+",py="+py+",radius="+radius);
+		
 		// Decrease the radius to allow direction letters and spacings
 		int textWidth = (int) textPaint.measureText("W");
 		int textHeight = (int) textPaint.measureText("yY");

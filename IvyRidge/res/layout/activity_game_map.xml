@@ -10,11 +10,17 @@
 
     <com.omnixgroup.area48.TouchImageView
         android:id="@+id/area_map"
-        android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"            
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"            
         android:scaleType="center"
         android:src="@drawable/area_map" />
 
+    <com.omnixgroup.area48.PlayerMarkerView
+        android:id="@+id/playerMarkerView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         />
+        
     <com.omnixgroup.area48.CompassView
         android:id="@+id/compassView"
         android:layout_width="85dp"
@@ -22,5 +28,21 @@
         android:layout_alignRight="@id/area_map"
         android:layout_alignTop="@id/area_map"
          />
+    
+    <!-- 
+    <com.omnixgroup.area48.PlayerMarkerView
+        android:id="@+id/playerMarkerView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         />
+        
+    <com.omnixgroup.area48.CompassView
+        android:id="@+id/compassView"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_alignRight="@id/playerMarkerView"
+        android:layout_alignTop="@id/playerMarkerView"
+         />
+ -->
 
 </RelativeLayout>

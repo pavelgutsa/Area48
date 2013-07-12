@@ -18,6 +18,7 @@ public class GameMapActivity extends Activity implements SensorEventListener {
 	Float azimuth; // View to draw a compass
 
 	CompassView mCompassView;
+	PlayerMarkerView mPlayerMarkerView;
 	private SensorManager mSensorManager;
 	Sensor accelerometer;
 	Sensor magnetometer;
@@ -30,7 +31,10 @@ public class GameMapActivity extends Activity implements SensorEventListener {
 		// Set map moving handler
 		final TouchImageView mapView = (TouchImageView) this
 				.findViewById(R.id.area_map);
-		mapView.setMaxZoom(5f);
+		if(mapView!=null)
+		{
+			mapView.setMaxZoom(5f);
+		}
 	}
 
 	@Override
@@ -45,10 +49,13 @@ public class GameMapActivity extends Activity implements SensorEventListener {
 
 		// Find compass view
 		mCompassView = (CompassView) findViewById(R.id.compassView);
+		mPlayerMarkerView = (PlayerMarkerView) findViewById(R.id.playerMarkerView);
 
 		// Zero azimuth
 		mCompassView.setBearing(0);
+		mPlayerMarkerView.setBearing(0);
 		mCompassView.invalidate();
+		mPlayerMarkerView.invalidate();
 
 		// Register sensor events
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -116,6 +123,13 @@ public class GameMapActivity extends Activity implements SensorEventListener {
 					//mCompassView.setBearing(azimuth);
 					mCompassView.setBearing(rotation_degree);
 					mCompassView.invalidate();
+				}
+				
+				// Update the player marker
+				if (mPlayerMarkerView != null) {
+					//mPlayerMarkerView.setBearing(azimuth);
+					mPlayerMarkerView.setBearing(rotation_degree);
+					mPlayerMarkerView.invalidate();
 				}
 			}
 		}
