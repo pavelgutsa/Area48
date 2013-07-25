@@ -8,7 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".GameMapActivity" >
 
-    <com.omnixgroup.area48.TouchImageView
+    <com.omnixgroup.area48.GameMapView
         android:id="@+id/area_map"
         android:layout_width="fill_parent"
     	android:layout_height="fill_parent"            

@@ -65,7 +65,7 @@ public class PlayerMarkerView extends View {
 		
 		// Draw the background
 		canvas.drawCircle(px, py, playerMarkerRadius, playerMarkerPaint);
-		Log.i("PLAYER_MARKER", "px="+px+",py="+py+",radius="+playerMarkerRadius);
+		//Log.i("PLAYER_MARKER", "px="+px+",py="+py+",radius="+playerMarkerRadius);
 			
 		// Save canvas state before painting player marker arrow
 		canvas.save();

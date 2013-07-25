@@ -38,6 +38,7 @@ public final class R {
     }
     public static final class id {
         public static final int action_report_objective_completion=0x7f0a000b;
+        public static final int action_set_location=0x7f0a000c;
         public static final int action_settings=0x7f0a000a;
         public static final int area_map=0x7f0a0001;
         public static final int compassView=0x7f0a0000;
@@ -73,29 +74,30 @@ public final class R {
         public static final int main=0x7f090006;
     }
     public static final class string {
-        public static final int action_report_objective_completion=0x7f070004;
+        public static final int action_report_objective_completion=0x7f070005;
+        public static final int action_set_location=0x7f070004;
         public static final int action_settings=0x7f070003;
         public static final int app_name=0x7f070000;
-        public static final int button_objectives=0x7f070007;
+        public static final int button_objectives=0x7f070008;
         public static final int button_send=0x7f070002;
-        public static final int cardinal_east=0x7f070011;
+        public static final int cardinal_east=0x7f070012;
         /**  Compass strings 
          */
-        public static final int cardinal_north=0x7f070010;
-        public static final int cardinal_south=0x7f070012;
-        public static final int cardinal_west=0x7f070013;
+        public static final int cardinal_north=0x7f070011;
+        public static final int cardinal_south=0x7f070013;
+        public static final int cardinal_west=0x7f070014;
         public static final int edit_message=0x7f070001;
-        public static final int hello_world=0x7f07000d;
-        public static final int loading_objectives=0x7f070009;
-        public static final int objective_status_completed=0x7f07000b;
-        public static final int objective_status_pending=0x7f07000a;
-        public static final int reporting_objective_completion=0x7f07000f;
-        public static final int title_activity_display_location_objective=0x7f07000c;
-        public static final int title_activity_display_target_objective=0x7f07000e;
-        public static final int title_activity_game_map=0x7f070014;
-        public static final int title_activity_list_objectives=0x7f070008;
-        public static final int title_activity_main=0x7f070005;
-        public static final int title_activity_view_objective=0x7f070006;
+        public static final int hello_world=0x7f07000e;
+        public static final int loading_objectives=0x7f07000a;
+        public static final int objective_status_completed=0x7f07000c;
+        public static final int objective_status_pending=0x7f07000b;
+        public static final int reporting_objective_completion=0x7f070010;
+        public static final int title_activity_display_location_objective=0x7f07000d;
+        public static final int title_activity_display_target_objective=0x7f07000f;
+        public static final int title_activity_game_map=0x7f070015;
+        public static final int title_activity_list_objectives=0x7f070009;
+        public static final int title_activity_main=0x7f070006;
+        public static final int title_activity_view_objective=0x7f070007;
     }
     public static final class style {
         /** 
