@@ -37,19 +37,18 @@ public final class R {
         public static final int team_leader=0x7f020005;
     }
     public static final class id {
-        public static final int action_report_objective_completion=0x7f0a000b;
-        public static final int action_set_location=0x7f0a000c;
-        public static final int action_settings=0x7f0a000a;
+        public static final int action_report_objective_completion=0x7f0a000a;
+        public static final int action_set_location=0x7f0a000b;
+        public static final int action_settings=0x7f0a0009;
         public static final int area_map=0x7f0a0001;
         public static final int compassView=0x7f0a0000;
-        public static final int icon=0x7f0a0008;
+        public static final int icon=0x7f0a0007;
         public static final int objective_text=0x7f0a0002;
-        public static final int objectives_list=0x7f0a0005;
-        public static final int objectives_loading_progress_bar=0x7f0a0006;
-        public static final int playerMarkerView=0x7f0a0004;
+        public static final int objectives_list=0x7f0a0004;
+        public static final int objectives_loading_progress_bar=0x7f0a0005;
         public static final int target_photo=0x7f0a0003;
-        public static final int text=0x7f0a0009;
-        public static final int titleHeading=0x7f0a0007;
+        public static final int text=0x7f0a0008;
+        public static final int titleHeading=0x7f0a0006;
     }
     public static final class integer {
         public static final int player_marker_radius=0x7f060000;

@@ -74,7 +74,6 @@ public class GameMapActivity extends Activity implements SensorEventListener, Lo
 
 	// Set location on the game map
 	void setMapLocation() {
-		mGameMapView = (GameMapView) findViewById(R.id.area_map);
 		mGameMapView.addLocation(mCurentLocation);
 	}
 	
@@ -83,14 +82,17 @@ public class GameMapActivity extends Activity implements SensorEventListener, Lo
 
 		// Find compass view
 		mCompassView = (CompassView) findViewById(R.id.compassView);
-		mPlayerMarkerView = (PlayerMarkerView) findViewById(R.id.playerMarkerView);
+		//mPlayerMarkerView = (PlayerMarkerView) findViewById(R.id.playerMarkerView);
+		mGameMapView = (GameMapView) findViewById(R.id.area_map);
 
 		// Zero azimuth
 		mCompassView.setBearing(0);
-		mPlayerMarkerView.setBearing(0);
 		mCompassView.invalidate();
-		mPlayerMarkerView.invalidate();
-
+		//mPlayerMarkerView.setBearing(0);
+		//mPlayerMarkerView.invalidate();
+		mGameMapView.setBearing(0);
+		mGameMapView.invalidate();
+		
 		// Connect to SensorManager
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		accelerometer = mSensorManager
@@ -183,6 +185,13 @@ public class GameMapActivity extends Activity implements SensorEventListener, Lo
 					//mPlayerMarkerView.setBearing(azimuth);
 					mPlayerMarkerView.setBearing(rotation_degree);
 					mPlayerMarkerView.invalidate();
+				}
+				
+				// Update the game map
+				if (mGameMapView != null) {
+					//mGameMapView.setBearing(azimuth);
+					mGameMapView.setBearing(rotation_degree);
+					mGameMapView.invalidate();
 				}
 			}
 		}
