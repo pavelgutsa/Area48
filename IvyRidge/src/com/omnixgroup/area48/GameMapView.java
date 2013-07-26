@@ -18,6 +18,8 @@ import android.graphics.RectF;
 import android.location.Location;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 
 public class GameMapView extends TouchImageView //implements View.OnTouchListener 
@@ -74,9 +76,9 @@ public class GameMapView extends TouchImageView //implements View.OnTouchListene
 		mPlayerMarkerY = 100;
 	}
 	
-	/*public boolean onTouch(View v, MotionEvent event) {
-		super.onTouch(v, event);
-	}*/
+	public boolean onTouch(View v, MotionEvent event) {
+		return super.onTouch(v, event);
+	}
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -92,35 +94,27 @@ public class GameMapView extends TouchImageView //implements View.OnTouchListene
 	{	
 		RectF r = new RectF(); 
 		matrix.mapRect(r);
-		Log.i("IMAGE_VIEW", "Rect " + r.left + " " + r.top + " " + r.right + " " + r.bottom + " " + saveScale + " ");
+		//Log.i("IMAGE_VIEW", "Rect " + r.left + " " + r.top + " " + r.right + " " + r.bottom + " " + saveScale + " ");
 		
-		/*float scaledX =  mPlayerMarkerX * saveScale;
+		float scaledX =  mPlayerMarkerX * saveScale;
 		float scaledY =  mPlayerMarkerY * saveScale;
 		
-		Log.i("PLAYER_MARKER", "Scaled xy: " + scaledX + " " + scaledY);
-		*/
-		float newX =  mPlayerMarkerX * saveScale + r.left;
-		float newY =  mPlayerMarkerY * saveScale + r.top;
+		//Log.i("PLAYER_MARKER", "Scaled xy: " + scaledX + " " + scaledY);
 		
-		Log.i("PLAYER_MARKER", "New xy: " + newX + " " + newY);
+		float newX =  scaledX + r.left;
+		float newY =  scaledY + r.top;
 		
-		//mPlayerMarkerX = scaledX;
-		//mPlayerMarkerY = scaledY;
+		//Log.i("PLAYER_MARKER", "New xy: " + newX + " " + newY);
 		
 		// Draw the background
-		//canvas.drawCircle(mPlayerMarkerX, mPlayerMarkerY, playerMarkerRadius, playerMarkerPaint);
 		canvas.drawCircle(newX, newY, playerMarkerRadius, playerMarkerPaint);
-		//Log.i("PLAYER_MARKER", "mPlayerMarkerX="+mPlayerMarkerX+",mPlayerMarkerY="+mPlayerMarkerY+",radius="+playerMarkerRadius);
 			
 		// Save canvas state before painting player marker arrow
 		canvas.save();
 		
 		// Rotate the canvas so the top is matching the current bearing
 		canvas.rotate((float)bearing, newX, newY);
-		//canvas.rotate(-(float)bearing * 360 / (2 * 3.14159f), px, mPlayerMarkerY);
-		
-		// Draw the needle
-		//canvas.drawLine(px, mPlayerMarkerY - radius - spacingY/2, px, mPlayerMarkerY + radius + spacingY/2, markerPaint);
+		//canvas.rotate(-(float)bearing * 360 / (2 * 3.14159f), newX, newY);
 		
 		// Set path points for needle top
 		playerMarkerArrow.reset(); 
