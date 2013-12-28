@@ -9,7 +9,7 @@
     tools:context=".ListItemsActivity" >
          
     <ProgressBar
-        android:id="@+id/objectives_loading_progress_bar"
+        android:id="@+id/loading_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@android:style/Widget.ProgressBar.Horizontal"
@@ -20,8 +20,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/objectives_loading_progress_bar"
-        android:layout_alignRight="@+id/objectives_loading_progress_bar"
+        android:layout_above="@+id/loading_progress_bar"
+        android:layout_alignRight="@+id/loading_progress_bar"
         android:gravity="center_horizontal"
         android:text="@string/loading_objectives"
         android:textSize="25sp" />

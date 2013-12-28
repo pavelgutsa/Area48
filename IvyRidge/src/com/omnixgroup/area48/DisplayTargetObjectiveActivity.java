@@ -1,6 +1,7 @@
 package com.omnixgroup.area48;
 
 import com.omnixgroup.area48.TeamObjective.ObjectiveStatus;
+import com.omnixgroup.area48.display.list.ListItemsActivity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -40,7 +41,7 @@ public class DisplayTargetObjectiveActivity extends Activity {
 
 		Intent intent = getIntent();
 		mTeamObjective = intent
-				.getParcelableExtra(ListObjectivesActivity.OBJECTIVE_ITEM);
+				.getParcelableExtra(ListItemsActivity.OBJECTIVE_ITEM);
 		
 		// Set up the title bar
 		if (mTeamObjective != null) {

@@ -25,8 +25,8 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
         public static final int area_map=0x7f020000;
@@ -34,73 +34,91 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
         public static final int ic_map_objective=0x7f020003;
         public static final int ic_target_objective=0x7f020004;
-        public static final int team_leader=0x7f020005;
+        public static final int ivyridge_logo=0x7f020005;
+        public static final int team_leader=0x7f020006;
     }
     public static final class id {
-        public static final int action_report_objective_completion=0x7f0a000b;
-        public static final int action_set_location=0x7f0a000c;
-        public static final int action_settings=0x7f0a000a;
+        public static final int action_club=0x7f0a0013;
+        public static final int action_field=0x7f0a0012;
+        public static final int action_game=0x7f0a0014;
+        public static final int action_map=0x7f0a0010;
+        public static final int action_report_objective_completion=0x7f0a000f;
+        public static final int action_set_location=0x7f0a0011;
+        public static final int action_settings=0x7f0a000e;
         public static final int area_map=0x7f0a0001;
         public static final int compassView=0x7f0a0000;
-        public static final int google_map=0x7f0a0004;
-        public static final int icon=0x7f0a0008;
+        public static final int fieldName=0x7f0a000b;
+        public static final int field_logo=0x7f0a0007;
+        public static final int icon=0x7f0a000a;
+        public static final int items_list=0x7f0a0004;
+        public static final int ivyridge_logo=0x7f0a0006;
+        public static final int loading_progress_bar=0x7f0a0008;
         public static final int objective_text=0x7f0a0002;
         public static final int objectives_list=0x7f0a0005;
-        public static final int objectives_loading_progress_bar=0x7f0a0006;
+        public static final int objectives_loading_progress_bar=0x7f0a0009;
         public static final int target_photo=0x7f0a0003;
-        public static final int text=0x7f0a0009;
-        public static final int titleHeading=0x7f0a0007;
+        public static final int text=0x7f0a000d;
+        public static final int titleHeading=0x7f0a000c;
     }
     public static final class integer {
-        public static final int player_marker_radius=0x7f060000;
+        public static final int player_marker_radius=0x7f070000;
     }
     public static final class layout {
         public static final int activity_compass=0x7f030000;
         public static final int activity_display_location_objective=0x7f030001;
         public static final int activity_display_target_objective=0x7f030002;
         public static final int activity_game_map=0x7f030003;
-        public static final int activity_google_maps=0x7f030004;
+        public static final int activity_list_items=0x7f030004;
         public static final int activity_list_objectives=0x7f030005;
-        public static final int load_objectives_progress=0x7f030006;
-        public static final int team_objective_title=0x7f030007;
-        public static final int team_objectives_listitem=0x7f030008;
+        public static final int activity_main=0x7f030006;
+        public static final int landing_activity_field=0x7f030007;
+        public static final int load_list_progress=0x7f030008;
+        public static final int load_objectives_progress=0x7f030009;
+        public static final int playing_field_listitem=0x7f03000a;
+        public static final int team_objective_title=0x7f03000b;
+        public static final int team_objectives_listitem=0x7f03000c;
     }
     public static final class menu {
         public static final int compass=0x7f090000;
         public static final int display_location_objective=0x7f090001;
         public static final int display_objective=0x7f090002;
         public static final int display_target_objective=0x7f090003;
-        public static final int game_map=0x7f090004;
-        public static final int google_maps=0x7f090005;
+        public static final int field=0x7f090004;
+        public static final int game_map=0x7f090005;
         public static final int list_objectives=0x7f090006;
         public static final int main=0x7f090007;
     }
     public static final class string {
-        public static final int action_report_objective_completion=0x7f070005;
-        public static final int action_set_location=0x7f070004;
-        public static final int action_settings=0x7f070003;
-        public static final int app_name=0x7f070000;
-        public static final int button_objectives=0x7f070008;
-        public static final int button_send=0x7f070002;
-        public static final int cardinal_east=0x7f070012;
+        public static final int action_club=0x7f080005;
+        public static final int action_field=0x7f080004;
+        public static final int action_game=0x7f080006;
+        public static final int action_map=0x7f080007;
+        public static final int action_report_objective_completion=0x7f080009;
+        public static final int action_set_location=0x7f080008;
+        public static final int action_settings=0x7f080003;
+        public static final int app_name=0x7f080000;
+        public static final int button_objectives=0x7f08000c;
+        public static final int button_send=0x7f080002;
+        public static final int cardinal_east=0x7f080016;
         /**  Compass strings 
          */
-        public static final int cardinal_north=0x7f070011;
-        public static final int cardinal_south=0x7f070013;
-        public static final int cardinal_west=0x7f070014;
-        public static final int edit_message=0x7f070001;
-        public static final int hello_world=0x7f07000e;
-        public static final int loading_objectives=0x7f07000a;
-        public static final int objective_status_completed=0x7f07000c;
-        public static final int objective_status_pending=0x7f07000b;
-        public static final int reporting_objective_completion=0x7f070010;
-        public static final int title_activity_display_location_objective=0x7f07000d;
-        public static final int title_activity_display_target_objective=0x7f07000f;
-        public static final int title_activity_game_map=0x7f070015;
-        public static final int title_activity_google_maps=0x7f070016;
-        public static final int title_activity_list_objectives=0x7f070009;
-        public static final int title_activity_main=0x7f070006;
-        public static final int title_activity_view_objective=0x7f070007;
+        public static final int cardinal_north=0x7f080015;
+        public static final int cardinal_south=0x7f080017;
+        public static final int cardinal_west=0x7f080018;
+        public static final int edit_message=0x7f080001;
+        public static final int hello_world=0x7f080012;
+        public static final int loading_objectives=0x7f08000e;
+        public static final int objective_status_completed=0x7f080010;
+        public static final int objective_status_pending=0x7f08000f;
+        public static final int reporting_objective_completion=0x7f080014;
+        public static final int title_activity_display_location_objective=0x7f080011;
+        public static final int title_activity_display_target_objective=0x7f080013;
+        public static final int title_activity_field=0x7f08001b;
+        public static final int title_activity_game_map=0x7f080019;
+        public static final int title_activity_google_maps=0x7f08001a;
+        public static final int title_activity_list_objectives=0x7f08000d;
+        public static final int title_activity_main=0x7f08000a;
+        public static final int title_activity_view_objective=0x7f08000b;
     }
     public static final class style {
         /** 
@@ -113,10 +131,12 @@ public final class R {
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f050002;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f050003;
+        public static final int CustomTheme=0x7f050001;
+        public static final int CustomWindowTitleBackground=0x7f050000;
     }
 }

@@ -1,5 +1,7 @@
 package com.omnixgroup.area48;
 
+import com.omnixgroup.area48.display.list.ListItemsActivity;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -40,7 +42,7 @@ public class DisplayLocationObjectiveActivity extends Activity
 
 		Intent intent = getIntent();
 		TeamObjective o = intent
-				.getParcelableExtra(ListObjectivesActivity.OBJECTIVE_ITEM);
+				.getParcelableExtra(ListItemsActivity.OBJECTIVE_ITEM);
 
 		final TextView textView = (TextView) findViewById(R.id.objective_text);
 		textView.setText(o.getObjectiveDescription());

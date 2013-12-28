@@ -47,7 +47,7 @@ public class ListObjectivesActivity extends Activity implements
 	void loadObjectivesList() {
 
 		Log.i("LOADING", "Loading Team Objectives");
-		
+
 		// Show progress bar
 		setContentView(R.layout.load_objectives_progress);
 
@@ -59,7 +59,7 @@ public class ListObjectivesActivity extends Activity implements
 			public void run() {
 				try {
 					// Fill objectives array
-					
+
 					Thread.sleep(200);
 
 					// Update the progress bar
@@ -68,13 +68,13 @@ public class ListObjectivesActivity extends Activity implements
 							mProgress.setProgress(25);
 						}
 					});
-					
+
 					TeamObjective o1 = new TeamObjective();
 					o1.setObjectiveName("Eliminate Camo Team Leader");
 					o1.setObjectiveStatus(TeamObjective.ObjectiveStatus.PENDING);
 					o1.setObjectiveType(TeamObjective.ObjectiveType.FIND_TARGET);
-					o1.setObjectiveDescription("Camo Team Leader is armed and very dangerous.  Exercise extreme caution while approaching him.  Shoot him out and take a picture to prove that you did it.");
-					
+					o1.setObjectiveDescription("Camo Team Leader is armed and very dangerous. Exercise extreme caution while approaching him. Shoot him out and take a picture to prove that you did it.");
+
 					mTeamObjectives.add(o1);
 					Thread.sleep(200);
 
@@ -89,7 +89,7 @@ public class ListObjectivesActivity extends Activity implements
 					o2.setObjectiveName("Locate Camo Team");
 					o2.setObjectiveStatus(TeamObjective.ObjectiveStatus.COMPLETED);
 					o2.setObjectiveType(TeamObjective.ObjectiveType.FIND_LOCATION);
-					o2.setObjectiveDescription("Our intelligence operatives have managed to hide a GPS transmitter on one of Camo Team members.  Use the map to locate the Camo Team.");
+					o2.setObjectiveDescription("Our intelligence operatives have managed to hide a GPS transmitter on one of Camo Team members. Use the map to locate the Camo Team.");
 					mTeamObjectives.add(o2);
 					Thread.sleep(200);
 
@@ -101,7 +101,7 @@ public class ListObjectivesActivity extends Activity implements
 					});
 
 					Thread.sleep(200);
-					
+
 					// Display objectives list
 					mHandler.post(new Runnable() {
 						public void run() {
@@ -140,7 +140,8 @@ public class ListObjectivesActivity extends Activity implements
 	public void onItemClick(AdapterView<?> parent, final View view,
 			int position, long id) {
 		// Get item
-		final TeamObjective o = (TeamObjective) parent.getItemAtPosition(position);
+		final TeamObjective o = (TeamObjective) parent
+				.getItemAtPosition(position);
 
 		// Remove the item
 		// list.remove(item);
@@ -150,7 +151,7 @@ public class ListObjectivesActivity extends Activity implements
 
 		// Start objective display activity
 		Intent intent;
-		switch(o.getObjectiveType()) {
+		switch (o.getObjectiveType()) {
 		case FIND_LOCATION:
 			intent = new Intent(this, DisplayLocationObjectiveActivity.class);
 			break;
@@ -159,8 +160,8 @@ public class ListObjectivesActivity extends Activity implements
 			break;
 		default:
 			return;
-		}	
-		
+		}
+
 		// Attach the objective to the intent
 		intent.putExtra(OBJECTIVE_ITEM, o);
 
@@ -202,58 +203,56 @@ public class ListObjectivesActivity extends Activity implements
 				// Set objective icon
 				ImageView icon = (ImageView) v.findViewById(R.id.icon);
 				if (icon != null) {
-					switch(o.getObjectiveType()) {
+					switch (o.getObjectiveType()) {
 					case FIND_LOCATION:
 						icon.setImageResource(R.drawable.ic_map_objective);
 						break;
 					case FIND_TARGET:
 						icon.setImageResource(R.drawable.ic_target_objective);
 						break;
-					}					
+					}
 				}
-				
+
 				// Set objective name
 				TextView text = (TextView) v.findViewById(R.id.text);
 				if (text != null) {
 					text.setText(o.getObjectiveName());
-					
-					switch(o.getObjectiveStatus()) {
+
+					switch (o.getObjectiveStatus()) {
 					case PENDING:
-						text.setPaintFlags(text.getPaintFlags() ^ Paint.STRIKE_THRU_TEXT_FLAG);
+						text.setPaintFlags(text.getPaintFlags()
+								^ Paint.STRIKE_THRU_TEXT_FLAG);
 						text.setTextColor(Color.parseColor("#101010"));
-						text.setShadowLayer(1, 0, 1, Color.parseColor("#000000"));
+						text.setShadowLayer(1, 0, 1,
+								Color.parseColor("#000000"));
 						break;
 					case COMPLETED:
-						text.setPaintFlags(text.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+						text.setPaintFlags(text.getPaintFlags()
+								| Paint.STRIKE_THRU_TEXT_FLAG);
 						text.setTextColor(Color.parseColor("#333333"));
-						text.setShadowLayer(1, 0, 1, Color.parseColor("#ffffff"));						
+						text.setShadowLayer(1, 0, 1,
+								Color.parseColor("#ffffff"));
 						break;
-					}	
-					
+					}
+
 				}
-				
+
 				/*
-				TextView tt = (TextView) v.findViewById(R.id.toptext);
-				if (tt != null) {
-					tt.setText(o.getObjectiveName());
-				}
-				
-				// Set objective status
-				TextView bt = (TextView) v.findViewById(R.id.bottomtext);
-				if (bt != null) {
-					switch(o.getObjectiveStatus()) {
-					case PENDING:
-						bt.setText(R.string.objective_status_pending);
-						bt.setPaintFlags(bt.getPaintFlags() ^ Paint.STRIKE_THRU_TEXT_FLAG);
-						break;
-					case COMPLETED:
-						bt.setText(R.string.objective_status_completed);
-						bt.setPaintFlags(bt.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-						break;
-					}	
-					
-				}
-				*/
+				 * TextView tt = (TextView) v.findViewById(R.id.toptext); if (tt
+				 * != null) { tt.setText(o.getObjectiveName()); }
+				 * 
+				 * // Set objective status TextView bt = (TextView)
+				 * v.findViewById(R.id.bottomtext); if (bt != null) {
+				 * switch(o.getObjectiveStatus()) { case PENDING:
+				 * bt.setText(R.string.objective_status_pending);
+				 * bt.setPaintFlags(bt.getPaintFlags() ^
+				 * Paint.STRIKE_THRU_TEXT_FLAG); break; case COMPLETED:
+				 * bt.setText(R.string.objective_status_completed);
+				 * bt.setPaintFlags(bt.getPaintFlags() |
+				 * Paint.STRIKE_THRU_TEXT_FLAG); break; }
+				 * 
+				 * }
+				 */
 			}
 			return v;
 		}
