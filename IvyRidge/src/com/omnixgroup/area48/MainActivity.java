@@ -1,6 +1,6 @@
 package com.omnixgroup.area48;
 
-import com.omnixgroup.area48.display.landing.FieldsActivity;
+import com.omnixgroup.area48.display.landing.PlayingFieldsActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 		
 		switch (item.getItemId()) {
 		case R.id.action_field:
-			intent = new Intent(this, FieldsActivity.class);
+			intent = new Intent(this, PlayingFieldsActivity.class);
 			break;
 		default:
 			return super.onOptionsItemSelected(item);

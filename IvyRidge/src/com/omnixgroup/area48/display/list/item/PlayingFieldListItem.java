@@ -4,6 +4,7 @@ import com.omnixgroup.area48.R;
 import com.omnixgroup.area48.display.list.item.ViewableItem;
 import com.omnixgroup.area48.persistence.data.PlayingField;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,9 +17,14 @@ public class PlayingFieldListItem extends ViewableItem {
 	public void paintView( View v)
 	{
 		// Set objective name
-		TextView text = (TextView) v.findViewById(R.id.text);
+		TextView text = (TextView) v.findViewById(R.id.fieldName);
 		if (text != null) {
-			text.setText(((PlayingField)getItemData()).getfieldName());
+			String fieldName = ((PlayingField)getItemData()).getfieldName();
+			Log.i("PlayingFieldListItem", "Setting R.id.fieldName to "+fieldName);
+			text.setText(fieldName);
+		} else {
+			Log.i("PlayingFieldListItem", "Could not find R.id.fieldName");
 		}
+		
 	}
 }

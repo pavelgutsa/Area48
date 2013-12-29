@@ -21,9 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/loading_progress_bar"
-        android:layout_alignRight="@+id/loading_progress_bar"
         android:gravity="center_horizontal"
-        android:text="@string/loading_objectives"
+        android:text="@string/loading_list"
         android:textSize="25sp" />
 
 </RelativeLayout>

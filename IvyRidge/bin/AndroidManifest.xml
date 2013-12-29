@@ -27,14 +27,6 @@
         <activity
             android:name="com.omnixgroup.area48.display.list.ListItemsActivity"
             android:label="@string/app_name" >
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
         </activity>
         <!--
         <activity
@@ -45,7 +37,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>
         -->
         <activity
             android:name="com.omnixgroup.area48.DisplayLocationObjectiveActivity"
@@ -85,7 +77,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.omnixgroup.area48.display.landing.FieldsActivity"
+            android:name="com.omnixgroup.area48.display.landing.PlayingFieldsActivity"
+            android:label="@string/title_activity_field" >
+        </activity>
+        <activity
+            android:name="com.omnixgroup.area48.display.edit.DisplayPlayingFieldActivity"
             android:label="@string/title_activity_field" >
         </activity>
     </application>

@@ -34,52 +34,50 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class ListItemsActivity< ListItem extends ViewableItem > extends Activity implements
-		AdapterView.OnItemClickListener {
+public class ListItemsActivity< ListItem extends ViewableItem > extends Activity /*implements
+		AdapterView.OnItemClickListener*/ {
 
 	public static final String OBJECTIVE_ITEM = null;
 	
 	// Declare the UI components
-	private ListView itemsListView;
+	protected ListView itemsListView;
 	protected ProgressBar mProgress;
 	protected Handler mHandler = new Handler();
 
 	protected ArrayList<ListItem> mItemList = new ArrayList<ListItem>();
+	protected ItemsListArrayAdapter mItemsListArrayAdapter = null;
 	
-	private Class dataItemClass, listItemOnClickActivityClass;
+	private Class<? extends Parcelable> dataItemClass;
+	private Class<? extends Activity> listItemOnClickActivityClass;
 
 	protected void onCreate(Bundle savedInstanceState, 
 			Class<? extends Parcelable> dataItemClass,
-			Class listItemOnClickActivityClass,
+			Class<? extends Activity> listItemOnClickActivityClass,
 			int listItemActivityLayout) {
 
 		super.onCreate(savedInstanceState);
 
 		// Save object classes
-		this.dataItemClass= dataItemClass;
+		this.dataItemClass = dataItemClass;
 		this.listItemOnClickActivityClass = listItemOnClickActivityClass;
 		
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(listItemActivityLayout);
 
-		// TODO: Need to fix custom window title
-		//getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.window_title);
+		// Set custom window title
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.window_title);
 	}
 
-	public void displayObjectivesList() {
+	/*
+	public void displayList() {
 
-		setContentView(R.layout.activity_list_objectives);
+		setContentView(R.layout.activity_list_items);
 
 		// Initialize the UI components
-		itemsListView = (ListView) findViewById(R.id.objectives_list);
+		itemsListView = (ListView) findViewById(R.id.items_list);
 
-		// Change the Activity's label
-		this.setTitle(R.string.title_activity_list_objectives);
-
-		// Create array adapter
-		final ObjectivesArrayAdapter adapter = new ObjectivesArrayAdapter(this,
-				R.layout.team_objectives_listitem, mItemList);
-		itemsListView.setAdapter(adapter);
+		// Set array adapter
+		itemsListView.setAdapter(mItemsListArrayAdapter);
 
 		// Set onClick listener
 		itemsListView.setOnItemClickListener(this);
@@ -89,6 +87,7 @@ public class ListItemsActivity< ListItem extends ViewableItem > extends Activity
 	public void onItemClick(AdapterView<?> parent, final View view,
 			int position, long id) {
 		// Get item
+		Log.i("ListItemsActivity", "Getting item at position "+position+",parent="+parent+",id="+id);
 		final ListItem listItem = (ListItem) parent.getItemAtPosition(position);
 
 		// Remove the item
@@ -104,16 +103,16 @@ public class ListItemsActivity< ListItem extends ViewableItem > extends Activity
 
 		startActivity(activityIntent);
 	}
-
-	private class ObjectivesArrayAdapter extends ArrayAdapter<ListItem> {
+*/
+	public class ItemsListArrayAdapter extends ArrayAdapter<ListItem> {
 
 		HashMap<ListItem, Integer> mIdMap = new HashMap<ListItem, Integer>();
 
-		public ObjectivesArrayAdapter(Context context, int textViewResourceId,
-				ArrayList<ListItem> objectives) {
-			super(context, textViewResourceId, objectives);
-			for (int i = 0; i < objectives.size(); ++i) {
-				mIdMap.put(objectives.get(i), i);
+		public ItemsListArrayAdapter(Context context, int textViewResourceId,
+				ArrayList<ListItem> items_list) {
+			super(context, textViewResourceId, items_list);
+			for (int i = 0; i < items_list.size(); ++i) {
+				mIdMap.put(items_list.get(i), i);
 			}
 		}
 
@@ -134,18 +133,11 @@ public class ListItemsActivity< ListItem extends ViewableItem > extends Activity
 			View v = convertView;
 			if (v == null) {
 				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				Log.i("ItemsListArrayAdapter", "Inflating template "+listItem.getItemTemplate());
 				v = vi.inflate(listItem.getItemTemplate(), null);
 			}
 			listItem.paintView(v);
 			return v;
 		}
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.list_objectives, menu);
-		return true;
-	}
-
 }

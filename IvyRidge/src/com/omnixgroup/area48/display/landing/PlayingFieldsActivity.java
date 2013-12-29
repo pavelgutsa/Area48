@@ -6,12 +6,18 @@ import com.omnixgroup.area48.display.list.ListItemsActivity;
 import com.omnixgroup.area48.display.list.item.PlayingFieldListItem;
 import com.omnixgroup.area48.persistence.data.PlayingField;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
-public class FieldsActivity extends ListItemsActivity<PlayingFieldListItem> {
+public class PlayingFieldsActivity extends ListItemsActivity<PlayingFieldListItem>
+implements AdapterView.OnItemClickListener
+{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +26,13 @@ public class FieldsActivity extends ListItemsActivity<PlayingFieldListItem> {
 				DisplayPlayingFieldActivity.class,
 				R.layout.landing_activity_field);
 		
+		// Change the Activity's label
+		this.setTitle(R.string.title_activity_playing_fields);
+		
 		// Start loading fields list
 		loadFieldsList();
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -81,7 +90,7 @@ public class FieldsActivity extends ListItemsActivity<PlayingFieldListItem> {
 					// Display objectives list
 					mHandler.post(new Runnable() {
 						public void run() {
-							displayObjectivesList();
+							displayList();
 						}
 					});
 
@@ -91,5 +100,45 @@ public class FieldsActivity extends ListItemsActivity<PlayingFieldListItem> {
 				}
 			}
 		}).start();
+	}
+	
+	public void displayList() {
+
+		setContentView(R.layout.activity_list_items);
+
+		// Initialize the UI components
+		itemsListView = (ListView) findViewById(R.id.items_list);
+
+		// Create array adapter
+		Log.i("PlayingFieldsActivity", "Creating ItemsListArrayAdapter with template "+R.layout.playing_field_listitem);
+		mItemsListArrayAdapter = new ItemsListArrayAdapter(this,
+				R.layout.playing_field_listitem, mItemList);
+
+		// Set array adapter
+		itemsListView.setAdapter(mItemsListArrayAdapter);
+
+		// Set onClick listener
+		itemsListView.setOnItemClickListener(this);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, final View view,
+			int position, long id) {
+		// Get item
+		Log.i("ListItemsActivity", "Getting item at position "+position+",parent="+parent+",id="+id);
+		final PlayingFieldListItem listItem = (PlayingFieldListItem) parent.getItemAtPosition(position);
+
+		// Remove the item
+		// list.remove(item);
+
+		// Refresh view
+		// adapter.notifyDataSetChanged();
+
+		// Start objective display activity
+		Intent activityIntent = new Intent(this, DisplayPlayingFieldActivity.class);
+		// Attach the objective to the intent
+		activityIntent.putExtra(PlayingField.class.toString(), listItem.getItemData());
+
+		startActivity(activityIntent);
 	}
 }

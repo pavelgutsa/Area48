@@ -15,7 +15,9 @@
     <string name="title_activity_view_objective">Team Objective</string>
     <string name="button_objectives">List Objectives</string>
     <string name="title_activity_list_objectives">Team Objectives</string>
+    <string name="title_activity_playing_fields">Playing Fields</string>
     <string name="loading_objectives">Loading objectives list &#8230;</string>
+    <string name="loading_list">Loading&#8230;</string>
     <string name="objective_status_pending">Pending</string>
     <string name="objective_status_completed">Completed</string>
     <string name="title_activity_display_location_objective">DisplayLocationObjectiveActivity</string>
